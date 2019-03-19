@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require "sinatra"
+
+NAME = "BiDi Debugger"
+MYURL = "https://github.com/mvidner/bidi-debugger"
+def footer
+  "\n<hr />\n" \
+  "<small>Powered by <a href='#{MYURL}'>#{NAME}</a></small>\n"
+end
+
+get "/" do
+  q = params["q"]
+
+  page = "<title>#{NAME}</title>\n"
+  page << "<p><b>#{NAME}</b></p>\n"
+
+  page << "
+  <form action='/' method='get'>
+    <p>Debug problems with bidirectional text
+    <input type='text' name='q' value='#{q}' autofocus />
+  </form>\n"
+
+  if q
+    page << "<hr />\n"
+    q.chars.each do |c|
+      page << "<p>#{escape_html(c)}</p>"
+    end
+  end
+  page << footer
+
+  page
+end
