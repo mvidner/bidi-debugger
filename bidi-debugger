@@ -22,9 +22,11 @@ get "/" do
 
   if q
     page << "<hr />\n"
+    page << "<table>\n"
     q.chars.each do |c|
-      page << "#{escape_html(c)}<br>"
+      page << "<tr><td>" << escape_html(c) << "</td><td>" << ("U+%04X" % c.ord) << "</td></tr>\n"
     end
+    page << "</table>\n"
   end
   page << footer
 
