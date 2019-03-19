@@ -6,3 +6,8 @@ Read about [how to build this from scratch](http://mvidner.blogspot.com/2016/12/
 
 ### Running locally
 
+```
+bundle install --path vendor/bundle
+bundle exec ./bidi-debugger
+xdg-open http://localhost:4567/
+```
