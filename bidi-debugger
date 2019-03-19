@@ -23,7 +23,7 @@ get "/" do
   if q
     page << "<hr />\n"
     q.chars.each do |c|
-      page << "<p>#{escape_html(c)}</p>"
+      page << "#{escape_html(c)}<br>"
     end
   end
   page << footer
