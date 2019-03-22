@@ -17,7 +17,13 @@ get "/" do
   page << "
   <form action='/' method='get'>
     <p>Debug problems with bidirectional text
-    <input type='text' name='q' value='#{q}' autofocus />
+    <input type='text' id='q' name='q' value='#{q}' autofocus />
+    <input type='submit' id='go' value='Go'/>
+    <input type='button' id='clear' value='(Clear)'
+           onclick=\"q = document.getElementById('q');
+                     q.value = '';
+                     q.focus()\"
+           />
   </form>\n"
 
   if q
